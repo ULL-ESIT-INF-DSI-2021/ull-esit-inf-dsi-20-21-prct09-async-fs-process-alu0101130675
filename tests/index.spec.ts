@@ -1,11 +1,16 @@
-/*import 'mocha';
 import 'mocha';
 import {expect} from 'chai';
-import {nota} from "../src/nota";
+import {name} from "../src/index";
 
-describe('nota function test', () => {
+describe('function test', () => {
+  it('prueba ', () => {
+    expect(name(5)).to.be.equal(5);
+  });
+});
+/*describe('nota function test', () => {
   const nota1: nota = new nota(
       "primera nota", "Esta es mi primera nota", "yellow");
+
   it('Creación de objeto nota ', () => {
     expect(new nota("primera nota",
         "Esta es mi primera nota", "yellow")).not.to.be.equal(null);

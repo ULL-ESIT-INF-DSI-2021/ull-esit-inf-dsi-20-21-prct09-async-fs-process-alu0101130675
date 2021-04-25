@@ -1,1 +1,3 @@
-console.log("inicio")
+export function name(params:number) {
+  return params;
+}
