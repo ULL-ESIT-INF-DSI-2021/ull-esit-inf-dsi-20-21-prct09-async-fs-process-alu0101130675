@@ -2,7 +2,7 @@ import 'mocha';
 import {expect} from 'chai';
 import {name} from "../src/index";
 
-describe('function test', () => {
+/*describe('function test', () => {
   it('prueba ', () => {
     expect(name(5)).to.be.equal(5);
   });
