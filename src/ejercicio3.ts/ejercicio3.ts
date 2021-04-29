@@ -35,28 +35,3 @@ fs.access(filename, fs.constants.F_OK, (err) => {
     });
   }
 });
-/*
-import * as fs from 'fs';
-
-if (process.argv.length < 4) {
-  console.log('At least, a file to watch and a command must be specified');
-  process.exit(-1);
-}
-
-const filename = process.argv[2];
-
-fs.access(filename, fs.constants.F_OK, (err) => {
-  if (err) {
-    console.log(`File ${filename} does not exist!`);
-  } else {
-    // Example when handled through fs.watch() listener
-    fs.watch(filename, {encoding: 'buffer'}, (event, filename) => {
-      console.log(event);
-      if (filename) {
-        console.log(filename.toString());
-        // Prints: <Buffer ...>
-      }
-      else {console.log("se fue");}
-    });
-  }
-});*/
