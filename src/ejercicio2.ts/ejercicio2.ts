@@ -35,7 +35,6 @@ fs.access(filename, fs.constants.F_OK, (err) => {
       console.log(`El comando ${command} no puede ejecutarse`);
       process.exit(-1);
     });
-
     let output = '';
     ls.stdout.on('data', (chunk) => (output += chunk));
     let outputError = '';
@@ -52,8 +51,3 @@ fs.access(filename, fs.constants.F_OK, (err) => {
     });
   }
 });
-
-
-
-
-
