@@ -1,16 +1,5 @@
-/*Desarrolle una aplicación que permita hacer de wrapper de los distintos comandos empleados en Linux para el manejo de ficheros y directorios. En concreto, la aplicación deberá permitir:
-
-    **Dada una ruta concreta, mostrar si es un directorio o un fichero.
-    **Crear un nuevo directorio a partir de una nueva ruta que recibe como parámetro.
-    **Listar los ficheros dentro de un directorio.
-    **Mostrar el contenido de un fichero (similar a ejecutar el comando cat).
-    **Borrar ficheros y directorios.
-    Mover y copiar ficheros y/o directorios de una ruta a otra. Para este caso, la aplicación recibirá una ruta origen y una ruta destino. En caso de que la ruta origen represente un directorio, 
-    se debe copiar dicho directorio y todo su contenido a la ruta destino.*/
 import * as fs from 'fs';
-import { spawn } from 'child_process';
-////const command = process.argv[3];
-//const commandOptions = process.argv.splice(4);
+import {spawn} from 'child_process';
 import * as yargs from 'yargs';
 
 yargs.command({
@@ -142,7 +131,6 @@ yargs.command({
     }
   },
 });
-
 yargs.command({
   command: 'cat',
   describe: 'mostar contenido de un fichero',
@@ -256,45 +244,3 @@ yargs.command({
   },
 });
 yargs.parse();
-
-/*
-fs.access(filename, fs.constants.F_OK, (err) => {
-  if (err) {
-    console.log(`File ${filename} does not exist!`);
-  } else {
-    const watcher = fs.watch(filename);
-
-    watcher.on('change', (eventType) => {
-      switch (eventType) {
-        case 'rename':
-          console.log(`Watched file ${filename} has been moved or deleted`);
-          process.exit(-1);
-        case 'change':
-          const cmd = spawn(command, [...commandOptions, filename]);
-
-          cmd.on('error', () => {
-            console.log(`Command ${command} could not be executed`);
-            process.exit(-1);
-          });
-
-          let output = '';
-          cmd.stdout.on('data', (chunk) => (output += chunk));
-
-          let outputError = '';
-          cmd.stderr.on('data', (chunk) => (outputError += chunk));
-
-          cmd.on('close', (code) => {
-            if (code) {
-              console.log(`Command ${command} exited with code ${code}`);
-              if (outputError) {
-                console.log(outputError);
-              }
-              process.exit(code);
-            }
-            console.log(output);
-          });
-          break;
-      }
-    });
-  }
-});*/

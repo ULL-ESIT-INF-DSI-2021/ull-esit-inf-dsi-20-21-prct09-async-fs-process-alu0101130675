@@ -6,7 +6,7 @@ const filename = process.argv[2];
 if (!filename) {
   console.log('A file to watch must be specified!');
   process.exit(1);
-
+  
 }
 /**
  * comprobamos si el fichero existe
