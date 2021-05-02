@@ -10,10 +10,10 @@ El método acces pasa a la pila de llamadas. Después se manda a la Web Api. Lo 
 Asi susecivamente hasta que se deje de emitir eventos o se emite un rename con lo que acabaría el programa.
 #### Qué hace la función access? ¿Para qué sirve el objeto constants?
 La función access comprueba que tipo de acceso sobre el fichero. El tipo se comprueba utilizando las distintas constantes:
-W_OK: Comprueba si un fichero puede ser escrito
-F_OK: Comprueba si el fichero existe. Pero no comprueba sus permisos
-X_OK: Comprueba si un fichero puede ser ejecutado
-R_OK: Comprueba si el fichero puede ser leído
+- W_OK: Comprueba si un fichero puede ser escrito
+- F_OK: Comprueba si el fichero existe. Pero no comprueba sus permisos
+- X_OK: Comprueba si un fichero puede ser ejecutado
+- R_OK: Comprueba si el fichero puede ser leído
 ### Ejercicio 2 sin hacer uso del método pipe
 ~~~
 import * as fs from 'fs';
