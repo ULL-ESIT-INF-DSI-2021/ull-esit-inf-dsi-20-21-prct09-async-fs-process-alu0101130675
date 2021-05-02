@@ -1,7 +1,9 @@
 import * as fs from 'fs';
 import {spawn} from 'child_process';
 import * as yargs from 'yargs';
-
+/**
+ * comando para saber si la ruta es un fichero o un directorio
+ */
 yargs.command({
   command: 'info',
   describe: 'información sobre la ruta dada',
@@ -30,6 +32,9 @@ yargs.command({
     }
   },
 });
+/**
+ * comando para crear directorios
+ */
 yargs.command({
   command: 'mkdir',
   describe: 'crea directorio en la ruta',
@@ -70,6 +75,9 @@ yargs.command({
     }
   },
 });
+/**
+ * comando para eliminar ficheros o directorios
+ */
 yargs.command({
   command: 'rm',
   describe: 'elimina directorio o fichero',
@@ -107,6 +115,9 @@ yargs.command({
     }
   },
 });
+/**
+ * comando para listar los ficheros de un directorio
+ */
 yargs.command({
   command: 'ls',
   describe: 'lista las notas del usuario',
@@ -131,6 +142,9 @@ yargs.command({
     }
   },
 });
+/**
+ * comando para mostrar el contenido de un fichero
+ */
 yargs.command({
   command: 'cat',
   describe: 'mostar contenido de un fichero',
@@ -161,6 +175,10 @@ yargs.command({
     }
   },
 });
+/**
+ * comando para copiar un fichero o directorio desde una ruta pasada
+ * por parametro
+ */
 yargs.command({
   command: 'cp',
   describe: 'mostar contenido de un fichero',
@@ -211,6 +229,10 @@ yargs.command({
     }
   },
 });
+/**
+ * comando para copiar un fichero o directorio desde una ruta pasada
+ * por parametro
+ */
 yargs.command({
   command: 'mv',
   describe: 'mostar contenido de un fichero',

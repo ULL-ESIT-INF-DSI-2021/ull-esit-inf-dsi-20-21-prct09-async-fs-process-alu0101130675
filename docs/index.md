@@ -6,15 +6,14 @@ En esta práctica haremos diferentes ejercicios para prácticar el uso de las AP
 Primer caso: Los argumentos pasados son distintos de tres por lo que no se introduce un fichero.
 Lo unico que se ejecutaría es el console.log de ese if.
 Segundo caso: al programa le pasan un fichero que existe.
-El método acces pasa a la pila de llamadas. Después se manda a la Web Api. Lo siguiente que hará es mandar la callback a la cola. No hay nada en la pila de llamadas por lo que entra la callback y se evalua los if de error. Si es un error ahi se termina el programa, en caso de que no pasa a la pila de llamadas watcher. Esta pasa a la web Api esperando que se emita algun evento. Cuando esto ocurra es mandada a la cola y como no hay nada más en la pila de llamada se evalua si es un evento change o rename. Si es change se imprime que el fichero ha sido modificado y en otro caso imprime que el fichero a dejado de observarse.
+El método acces pasa a la pila de llamadas. Después se manda a la Web Api. Lo siguiente que hará es mandar la callback a la cola. No hay nada en la pila de llamadas por lo que entra la callback y se evalua los if de error. Si es un error ahi se termina el programa, en caso de que no, pasa watcher a la pila de llamadas . Watcher pasa a la web Api esperando que se emita algun evento. Cuando esto ocurra es mandada a la cola y como no hay nada más en la pila de llamada se evalua si es un evento change o rename. Si es change se imprime que el fichero ha sido modificado y en otro caso imprime que el fichero a dejado de observarse.
+Asi susecivamente hasta que se deje de emitir eventos o se emite un rename con lo que acabaría el programa.
 #### Qué hace la función access? ¿Para qué sirve el objeto constants?
 La función access comprueba que tipo de acceso sobre el fichero. El tipo se comprueba utilisando las distintas constantes:
 W_OK: Comprueba si un fichero puede ser escrito
 F_OK: Comprueba si el fichero existe. Pero no comprueba sus permisos
 X_OK: Comprueba si un fichero puede ser ejecutado
 R_OK: Comprueba si el fichero puede ser leído
-
-
 ### Ejercicio 2 in hacer uso del método pipe
 ~~~
 import * as fs from 'fs';
@@ -164,9 +163,9 @@ Si se emite change mostramos por consola que el fichero ha cambiado.
 2. Si no se emite ningun evento rename más quiere decir que se ha creado o eliminado un fichero, esto lo distinguimos con fs.acces. Si hay un error quiere decir que no existe por lo que se ha eliminado, en caso contrario es que se ha creado un fichero.
 Al final esta comprobacion se pone la x  otra vez a 0
 #### ¿Cómo haría para mostrar, no solo el nombre, sino también el contenido del fichero, en el caso de que haya sido creado o modificado?
-Si nos fijamos, watch además de el evento name y change, emite el nombre del fichero que produjo el evento anterior por lo que con la ruta que hemos pasado y añadiendole ese fichero con un con comando cat podriamos imprimir el contenido del fichero.
+Si nos fijamos, watch además de el evento name y change, emite el nombre del fichero que produjo el evento anterior por lo que con la ruta que hemos pasado y añadiendole ese fichero, con un con comando cat podriamos imprimir el contenido del fichero.
 #### ¿Cómo haría para que no solo se observase el directorio de un único usuario sino todos los directorios correspondientes a los diferentes usuarios de la aplicación de notas?
-Si pedimos la ruta por argumento tendria que recibir la de notas aunque no haría falta pedirla ya que si quieres observar los cambios de lass notas de todos los usuarios solo hay una ruta. Para ello utilizria wath con la opcion recursive, es decir que mire dentro de los directiorios del directorio **fs.watch(filename, {recursive: true});**
+Si pedimos la ruta por argumento tendria que recibir la del directorio notas aunque no haría falta pedirla ya que si quieres observar los cambios de las notas de todos los usuarios solo hay una ruta. Para ello utilizria wath con la opcion recursive, es decir que mire dentro de los directiorios del directorio **fs.watch(filename, {recursive: true});**
 ### Ejercicio 4
 Para este ejercico utilizamos yargs. La explicación se divirá por los apartados que se va pidiendo
 #### Dada una ruta concreta, mostrar si es un directorio o un fichero.
