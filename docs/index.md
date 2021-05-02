@@ -14,7 +14,7 @@ W_OK: Comprueba si un fichero puede ser escrito
 F_OK: Comprueba si el fichero existe. Pero no comprueba sus permisos
 X_OK: Comprueba si un fichero puede ser ejecutado
 R_OK: Comprueba si el fichero puede ser leído
-### Ejercicio 2 in hacer uso del método pipe
+### Ejercicio 2 sin hacer uso del método pipe
 ~~~
 import * as fs from 'fs';
 import {spawn} from 'child_process';
