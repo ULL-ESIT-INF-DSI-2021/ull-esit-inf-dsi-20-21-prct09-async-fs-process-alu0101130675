@@ -9,7 +9,7 @@ Segundo caso: al programa le pasan un fichero que existe.
 El método acces pasa a la pila de llamadas. Después se manda a la Web Api. Lo siguiente que hará es mandar la callback a la cola. No hay nada en la pila de llamadas por lo que entra la callback y se evalua los if de error. Si es un error ahi se termina el programa, en caso de que no, pasa watcher a la pila de llamadas . Watcher pasa a la web Api esperando que se emita algun evento. Cuando esto ocurra es mandada a la cola y como no hay nada más en la pila de llamada se evalua si es un evento change o rename. Si es change se imprime que el fichero ha sido modificado y en otro caso imprime que el fichero a dejado de observarse.
 Asi susecivamente hasta que se deje de emitir eventos o se emite un rename con lo que acabaría el programa.
 #### Qué hace la función access? ¿Para qué sirve el objeto constants?
-La función access comprueba que tipo de acceso sobre el fichero. El tipo se comprueba utilisando las distintas constantes:
+La función access comprueba que tipo de acceso sobre el fichero. El tipo se comprueba utilizando las distintas constantes:
 W_OK: Comprueba si un fichero puede ser escrito
 F_OK: Comprueba si el fichero existe. Pero no comprueba sus permisos
 X_OK: Comprueba si un fichero puede ser ejecutado
